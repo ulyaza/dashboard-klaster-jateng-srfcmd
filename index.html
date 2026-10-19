@@ -464,7 +464,7 @@ $("btnRun").onclick=()=>{const m=$("runMsg");
  const rows=[];let i=0,best=null;$("btnRun").disabled=true;
  const step=()=>{const t0=performance.now();
   while(i<combos.length&&performance.now()-t0<40){const[K,b,l]=combos[i++],r=fit(D,K,b,l,mm,Math.min(st,10),it,seed),valid=r.size.every(x=>x>=minS)&&r.noise<=maxN&&isFinite(r.XB);
-   rows.push({K,b,l,XB:r.XB,noise:r.noise,min:Math.min(...r.size),conv:r.convRate,valid});if(valid&&(!best||r.XB<best.XB))best={K,b,l}}
+   rows.push({K,b,l,XB:r.XB,noise:r.noise,min:Math.min(...r.size),conv:r.convRate,valid});if(valid&&(!best||r.XB<best.XB))best={K,b,l,XB:r.XB}
   m.className="msg";m.textContent=`Pencarian grid: ${i}/${combos.length} kombinasi…`;
   if(i<combos.length)return setTimeout(step,0);
   $("btnRun").disabled=false;
